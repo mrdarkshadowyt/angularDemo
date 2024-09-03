@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "deploy": "ng build --output-path=docs --base-href=/angularDemo/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:demo": "node dist/demo/server/server.mjs"
