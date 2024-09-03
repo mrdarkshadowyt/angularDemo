@@ -1,0 +1,231 @@
+General styling
+* {
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  color: #2c3e50;
+}
+
+
+a:active {
+  color: #8134af;
+}
+
+a {
+  color: #080808;
+  text-decoration: wavy;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+body {
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: center; */
+  /* justify-content: flex-start; */
+  /* min-height: 100vh; */ /* Subtle background gradient */
+  background-color: #B0B0B0;
+}
+
+/* Container for the circle and quadrants */
+.circle-container {
+  position: absolute; /* Position absolute to move it freely */
+  top: 30%;/* Distance from the top of the viewport */
+  left: 10%; /* Distance from the left of the viewport */
+  width: 400px;
+  height: 400px;
+  transition: transform 0.5s ease; /* Transition for moving container */
+}
+
+/* Style for the circle */
+.circle {
+  position: absolute;
+  top: 70%; /* Original position from old CSS */
+  left: 70%; /* Original position from old CSS */
+  width: 200px;
+  height: 200px;
+  background-image: url("https://github.com/mrdarkshadowyt/ABOUT-/blob/main/IMG_20240822_162648.jpg?raw=true");
+  background-color: #3498db; /* Default background color */
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  transform: translate(-50%, -50%); /* Center the circle */
+  z-index: 1; /* Ensure the circle is above the quadrants */
+  transition: transform 0.3s ease;
+}
+
+/* Hover effect for the circle */
+.circle:hover {
+  transform: translate(-50%, -50%) scale(2);
+}
+
+/* Style for each quadrant */
+.quadrant {
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  background-color:#708090;
+  color: white;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #008080; */
+  /* animation: gradientAnimation 15s ease infinite; */
+}
+
+s.curved-text-svg-tl,
+.curved-text-svg-tr,
+.curved-text-svg-bl,
+.curved-text-svg-br {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+text {
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  fill: white;
+  text-anchor: middle; /* Center the text along the path */
+}
+
+/* Style for curved text */
+.curved-text {
+  font-family: Arial, sans-serif; /* Font family for the text */
+  font-size: 20px; /* Font size of the text */
+  fill: #ffffff; /* Color of the text */
+}
+
+textPath {
+  text-anchor: middle; /* Center the text along the path */
+  dominant-baseline: middle; /* Vertically center the text */
+}
+.top-left {
+  top: 10%;
+  left: 10%;
+  border-radius: 100% 0 0 0;
+}
+
+.top-right {
+  top: 10%;
+  left: 70%;
+  border-radius: 0 100% 0 0;
+}
+
+.bottom-left {
+  top: 70%;
+  left: 10%;
+  border-radius: 0 0 0 100%;
+}
+
+.bottom-right {
+  top: 70%;
+  left: 70%;
+  border-radius: 0 0 100% 0;
+}
+
+/* Hover effect: grow the quadrant */
+.top-left:hover {
+  transform: scale(1.2);
+  transform-origin: bottom right;
+}
+
+.top-right:hover {
+  transform: scale(1.2);
+  transform-origin: bottom left;
+}
+
+.bottom-left:hover {
+  transform: scale(1.2);
+  transform-origin: top right;
+}
+
+.bottom-right:hover {
+  transform: scale(1.2);
+  transform-origin: top left;
+}
+
+/* Rotation for text to match quadrant direction */
+.top-left .quadrant-content {
+  transform: rotate(-45deg);
+}
+
+.top-right .quadrant-content {
+  transform: rotate(45deg);
+}
+.bottom-left .quadrant-content {
+  transform: rotate(45deg);
+}
+
+.bottom-right .quadrant-content {
+  transform: rotate(-45deg);
+}
+
+li {
+  list-style: none;
+}
+
+/* New section styles */
+.side-section {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30%;
+  height: 100%;
+  background-color: #f5f5f5;
+  padding: 20px;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.3s ease;
+  opacity: 0; /* Initially hidden */
+}
+
+.side-section.visible {
+  opacity: 1; /* Visible when active */
+}
+
+nav {
+  position: absolute;
+  top: 5%; /* Adjusted for better alignment */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%; /* Ensure nav spans the width */
+  display: flex;
+  justify-content: center;
+}
+
+.router-outlet-container {
+  display: none; /* Hide by default */
+  position: relative;
+  margin-top: 20px; /* Adjusted for spacing below the circle-container */
+  width: 80%;
+  max-width: 800px;
+  padding: 20px;
+  background-color: #FFD700;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 2; /* Ensure the content is above other elements */
+}
+
+/* Show only when the route is active */
+.router-outlet-container.show {
+  display: block;
+}
+
+/* Optional: Animation for showing content */
+.router-outlet-container.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.router-outlet-container:not(.show) {
+  opacity: 0;
+  transform: scale(0.95);
+}
